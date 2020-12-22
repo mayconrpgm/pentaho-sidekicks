@@ -84,6 +84,16 @@ function heatMap(elementsToBeColorized) {
   colorize(elementsToBeColorized, cellValues);
 }
 
+function copyTable() {
+  activeGwtFrame.getSelection().removeAllRanges();
+  let range = document.createRange();
+  tableElement = activeGwtFrame.getElementById(TABLE_ELEMENT_ID);
+  range.selectNode(tableElement);
+  activeGwtFrame.getSelection().addRange(range);
+  activeGwtFrame.execCommand('copy');
+  activeGwtFrame.getSelection().removeAllRanges();
+}
+
 // Generate an array of the values contained in the "alt" attribute of the elements
 function extractValues(elements) {
   var cellValues = new Array(length);

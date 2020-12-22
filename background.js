@@ -21,6 +21,11 @@ chrome.runtime.onInstalled.addListener(function (details) {
     contexts: ["frame"],
     id: "clearHeatMap",
   });
+  chrome.contextMenus.create({
+    title: "Copy Table",
+    contexts: ["frame"],
+    id: "copyTable",
+  });
 
   chrome.tabs.query({ url: "*://*/pentaho/Home*" }, function (tabs) {
     tabs.forEach((tab) => {
